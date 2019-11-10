@@ -1,0 +1,50 @@
+#create an empty shopping list
+shopping_list=[]
+#function to add an items
+def add(item):
+  shopping_list.append(item)
+print("Enter your choice:")
+def show_help():        #enter your choices
+  print("""
+Enter DONE to end the list
+Enter ADD for this adding items in list
+Enter SHOW to see the list
+Enter REMOVE to remove from the list
+Enter EXIT for end
+  """)
+  
+show_help()
+def show():           #function for displaying items in list
+  index=1
+  print("Here is your list ")
+  for i in shopping_list:
+    print("{}.{}".format(index,i))
+    index+=1
+while True:               
+  item=input("->")
+  if item.upper()=='ADD':
+    n=input("Enter total no. of items to add in list\n")
+    n=int(n)
+    print("Enter name of the items to be add in list")
+    for i in range(0,n):
+      item=input()
+      add(item)
+    show_help()
+  elif item.upper()=='DONE':
+    show_help()
+    continue
+  elif item.upper()=='SHOW':
+    shopping_list.sort()
+    print("Here is your sorted list:")
+    show()
+    show_help()
+  elif item.upper()=='REMOVE':
+    item_remove=input("Enter the element to be removed\n")
+    shopping_list.remove(item_remove)     #removes an item from list
+    show()
+    show_help()
+  elif item.upper()=='EXIT':
+    break
+  
+
+
